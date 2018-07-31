@@ -10,8 +10,29 @@ group :production do
   gem "pg"
 end
 # Use sqlite3 as the database for Active Record
-group :development do
+group :development, :test do
   gem 'sqlite3'
+  #Helpful gems
+  #Improves error handling
+  gem "better_errors" 
+  #used by better errors
+  gem "binding_of_caller"
+
+  #Testing frameworks
+  #Testing frameworks gem
+  gem 'rspec-rails' 
+  #Use factories, not fixtures
+  gem "factory_girl_rails"
+  #Simulate browser activity
+  gem "capybara"
+  gem "fakeweb"
+
+  #Automated testing
+  #Autmated execution of test suite upon change
+  gem 'guard'
+  #Guard integration with rspec
+  gem "guard-rspec"
+
 end
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
@@ -64,7 +85,6 @@ end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '>= 2.15', '< 4.0'
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
